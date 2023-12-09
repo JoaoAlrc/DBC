@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber/native';
+import React, { memo, useRef } from 'react';
+import { useFrame } from '@react-three/fiber/native';
 import { Mesh } from 'three';
 
-const TorusKnotSpinner: React.FC<{ color?: string }> = (props) => {
+const Loading: React.FC = () => {
     const meshRef = useRef<Mesh>(null);
 
     useFrame(() => {
@@ -20,10 +20,4 @@ const TorusKnotSpinner: React.FC<{ color?: string }> = (props) => {
     );
 };
 
-const Loading: React.FC = () => {
-    return (
-        <TorusKnotSpinner color="teal" />
-    );
-};
-
-export default Loading;
+export default memo(Loading);

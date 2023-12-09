@@ -1,21 +1,58 @@
-import { Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 import { Container } from '../../components/styles';
 
-import GunModel from '../../components/RickModel';
-import { Suspense } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import dd from '../../assets/gun.glb'
-import { Gltf, Text3D } from '@react-three/drei/native';
-import RickModel from '../../components/RickModel';
+import RickScene from '../../components/RickScene';
+import { Button, Input, Scene, Text } from './styles';
+import { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useUserContext } from '../../store/userContext';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/types';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
 export default function LoginScreen() {
+  const navigation = useNavigation<NavigationProp>();
+  const [username, setUsername] = useState<string>("")
+  const { saveUsername } = useUserContext();
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      const storedUsername = await AsyncStorage.getItem('username');
+
+      if (storedUsername) {
+        navigation.navigate('Home')
+      }
+    };
+
+    loadUserData();
+  }, []);
+
+  const handleLogin = async () => {
+    try {
+      await AsyncStorage.setItem('username', username);
+      saveUsername(username);
+      navigation.navigate('Home')
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
-    <Container>
-      <View style={{ height: '50%' }}>
-        <RickModel />
-      </View>
-      <TextInput placeholder="Username" />
-    </Container>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <Container>
+        <Scene>
+          <RickScene />
+        </Scene>
+        <Input placeholder="Username" value={username} onChangeText={setUsername} />
+        <Button disabled={!username.length} onPress={handleLogin}>
+          <Text>Login</Text>
+        </Button>
+      </Container>
+    </KeyboardAvoidingView>
   );
 }
