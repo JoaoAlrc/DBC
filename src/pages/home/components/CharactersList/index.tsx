@@ -1,8 +1,8 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {Container} from './styles';
 import {Character} from '../../../../services/home';
 import CharacterItem from '../CharacterItem';
+import {Container} from '../../../../components/styles';
 
 interface CharactersListProps {
   onEndReached: () => void;

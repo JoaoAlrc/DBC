@@ -2,7 +2,7 @@ import {Text, View} from 'react-native';
 import {GET_CHARACTERS} from '../../services/home';
 import {useQuery} from '@apollo/client';
 import CharactersList from './components/CharactersList';
-import {Container} from './components/CharactersList/styles';
+import {Container} from '../../components/styles';
 
 export default function HomeScreen() {
   const {loading, data, fetchMore, error} = useQuery(GET_CHARACTERS, {
