@@ -4,13 +4,20 @@ export type Character = {
   id: number;
   name: string;
   image: string;
-  status?: string;
+  status?: CharacterStatus;
   type?: string;
   species?: string;
   gender?: string;
   origin?: string;
   location?: string;
 };
+
+export enum CharacterStatus {
+  Alive = "Alive",
+  Dead = "Dead",
+  Unknown = "unknown",
+}
+
 
 export const GET_CHARACTERS = gql(/* GraphQL */ `
   query GetAllCharacters($page: Int!) {

@@ -4,29 +4,16 @@ export const Scene = styled.View`
   flex: 1
 `;
 
-export const Input = styled.TextInput`
-  position: absolute;
-  background-color: #F0F2EB;
+export const InputContainer = styled.View`
+  position: absolute; 
   bottom: 80px;
   left: 16px;
-  right: 16px;
-  border-radius: 8px;
-  padding-vertical: 8px;
-  padding-horizontal: 8px;
+  right: 16px; 
 `;
 
-export const Button = styled.TouchableOpacity<{ disabled: boolean }>` 
-  align-items: center;
-  background-color: ${({ disabled }) => disabled ? '#a5a5a9' : '#5CAD4A'};
+export const ButtonContainer = styled.View`  
   position: absolute;
   bottom: 40px;
   left: 16px;
-  right: 16px;
-  border-radius: 8px;
-  padding-vertical: 8px;
-  padding-horizontal: 8px;
-`;
-
-export const Text = styled.Text`
-  color: #ffffff;
+  right: 16px; 
 `;

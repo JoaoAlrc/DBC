@@ -1,31 +1,29 @@
 import styled from 'styled-components/native';
+import colors from '../../../../utils/colors';
+import { Dimensions } from 'react-native';
 
-export const CharacterContainer = styled.View`
-  margin-bottom: 16px;
-  background-color: #fff;
-  padding: 16px;
-  border-radius: 8px;
+const width = Dimensions.get('window').width
+
+export const CharacterContainer = styled.View`  
+  align-self: center; 
+  background-color: ${colors.green}; 
+  border-radius: 20px;
+  margin-bottom: 18px;
+  overflow: hidden;
   elevation: 3;
-  shadow-color: #000;
+  width: ${(width / 2) - 16};
+  shadow-color: ${colors.black};
   shadow-offset: 0px 2px;
   shadow-opacity: 0.2;
-  shadow-radius: 3px;
+  shadow-radius: 3px; 
 `;
 
-export const CharacterName = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-  color: red;
+export const InfoContainer = styled.View` 
+  background-color: ${colors.light};
+  padding: 16px;  
 `;
 
-export const CharacterImage = styled.Image`
-  width: 100%;
-  height: 200px;
-  margin-top: 8px;
-  border-radius: 8px;
-`;
-
-export const CharacterDescription = styled.Text`
-  margin-top: 8px;
-  color: blue;
-`;
+export const CharacterImage = styled.ImageBackground`
+  padding: 16px;
+  height: 300px;
+`; 

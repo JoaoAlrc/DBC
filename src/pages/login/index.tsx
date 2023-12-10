@@ -1,8 +1,8 @@
 import { KeyboardAvoidingView, Platform } from 'react-native';
-import { Container } from '../../components/styles';
+import { Button, Container, Input, Text } from '../../components/styles';
 
 import RickScene from '../../components/RickScene';
-import { Button, Input, Scene, Text } from './styles';
+import { ButtonContainer, InputContainer, Scene } from './styles';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useUserContext } from '../../store/userContext';
@@ -48,10 +48,14 @@ export default function LoginScreen() {
         <Scene>
           <RickScene />
         </Scene>
-        <Input placeholder="Username" value={username} onChangeText={setUsername} />
-        <Button disabled={!username.length} onPress={handleLogin}>
-          <Text>Login</Text>
-        </Button>
+        <InputContainer>
+          <Input placeholder="Username" value={username} onChangeText={setUsername} />
+        </InputContainer>
+        <ButtonContainer>
+          <Button disabled={!username.length} onPress={handleLogin}>
+            <Text>Login</Text>
+          </Button>
+        </ButtonContainer>
       </Container>
     </KeyboardAvoidingView>
   );
