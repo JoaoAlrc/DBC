@@ -4,14 +4,14 @@ import { Dimensions } from 'react-native';
 
 const width = Dimensions.get('window').width
 
-export const CharacterContainer = styled.View`  
+export const CharacterContainer = styled.TouchableOpacity`  
   align-self: center; 
   background-color: ${colors.green}; 
   border-radius: 20px;
   margin-bottom: 18px;
   overflow: hidden;
   elevation: 3;
-  width: ${(width / 2) - 16};
+  width: ${(width / 2) - 16}px;
   shadow-color: ${colors.black};
   shadow-offset: 0px 2px;
   shadow-opacity: 0.2;

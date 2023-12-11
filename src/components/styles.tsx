@@ -10,9 +10,10 @@ export const Input = styled.TextInput`
   background-color: ${colors.light}; 
   border-radius: 8px;
   padding: 8px; 
-`;
-
-export const Button = styled.TouchableOpacity<{ disabled?: boolean }>` 
+  `;
+  
+  export const Button = styled.TouchableOpacity<{ disabled?: boolean }>` 
+  padding: 8px; 
   align-items: center;
   background-color: ${({ disabled }) => disabled ? colors.gray : colors.green};
   border-radius: 8px;

@@ -1,0 +1,46 @@
+{
+  "login": {
+    "login": "Login",
+    "username": "Username"
+  },
+  "home": {
+    "charactersList": "Characters List",
+    "noDataFound": "No data found."
+  },
+  "details": {
+    "character": "Character",
+    "currentLocation": "Current Location",
+    "origin": "Origin",
+    "episodes": "Episodes",
+    "locations": "Locations",
+    "personalInfo": "Personal Info",
+    "gender": "Gender",
+    "type": "Type"
+  },
+  "gender": {
+    "female": "Female",
+    "male": "Male",
+    "genderless": "Genderless",
+    "unknown": "Unknown"
+  },
+  "status": {
+    "unknown": "Unknown",
+    "alive": "Alive",
+    "dead": "Dead"
+  },
+  "species": {
+    "human": "Human",
+    "alien": "Alien",
+    "humanoid": "Humanoid",
+    "poopybutthole": "Poopybutthole",
+    "mythological": "Mythological",
+    "animal": "Animal",
+    "disease": "Disease",
+    "robot": "Robot",
+    "cronenberg": "Cronenberg",
+    "planet": "Planet"
+  },
+  "search": {
+    "placeholder": "Search..."
+  }
+}

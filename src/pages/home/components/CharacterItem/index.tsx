@@ -1,19 +1,22 @@
-import React from 'react';
-import { Character, CharacterStatus } from '../../../../services/home';
+import React, { memo } from 'react';
 import { CharacterContainer, CharacterImage, InfoContainer } from './styles';
 import { getStatusColor } from '../../../../utils';
 import { Chip, Text } from '../../../../components/styles';
 import colors from '../../../../utils/colors';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import { ViewToken } from 'react-native';
+import { Character, Status } from '../../../../interfaces/character';
+import { useTranslation } from 'react-i18next';
 
 interface CharacterProps {
   item: Character;
   vItems: Animated.SharedValue<ViewToken[]>;
+  onPressItem: (id: number) => void;
 }
 
-const CharacterItem: React.FC<CharacterProps> = ({ item, vItems }) => {
-  const statusColor = getStatusColor(item.status as CharacterStatus);
+const CharacterItem: React.FC<CharacterProps> = ({ item, vItems, onPressItem }) => {
+  const { t } = useTranslation();
+  const statusColor = getStatusColor(item.status as Status);
   const rStyle = useAnimatedStyle(() => {
     const isVisible = Boolean(vItems.value.filter(i => i.isViewable).find(i => i.item.id === item.id))
     return {
@@ -26,21 +29,25 @@ const CharacterItem: React.FC<CharacterProps> = ({ item, vItems }) => {
 
   return (
     <Animated.View style={rStyle}>
-      <CharacterContainer>
+      <CharacterContainer onPress={() => onPressItem(item.id)}>
         <CharacterImage source={{ uri: item.image }}>
           <Chip color={statusColor}>
             <Text>
-              {item.status}
+              {t(`status.${item.status.toLowerCase()}`)}
             </Text>
           </Chip>
         </CharacterImage>
         <InfoContainer>
-          <Text numberOfLines={1} color={colors.green}>{item.name}</Text>
-          <Text color={colors.gray}>{item.species}</Text>
+          <Text numberOfLines={1} color={colors.green} fontWeight='bold' fontSize='22px'>
+            {item.name}
+          </Text>
+          <Text color={colors.gray} fontWeight='bold'>
+            {t(`species.${item.species.toLowerCase()}`)}
+          </Text>
         </InfoContainer>
       </CharacterContainer>
     </Animated.View>
   );
 };
 
-export default CharacterItem;
+export default memo(CharacterItem);

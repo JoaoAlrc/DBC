@@ -1,0 +1,46 @@
+{
+  "login": {
+    "login": "Login",
+    "username": "Nome de Usuário"
+  },
+  "home": {
+    "charactersList": "Lista de Personagens",
+    "noDataFound": "Nenhum dado encontrado."
+  },
+  "details": {
+    "character": "Personagem",
+    "currentLocation": "Localização Atual",
+    "origin": "Origem",
+    "episodes": "Episódios",
+    "locations": "Localizações",
+    "personalInfo": "Informações Pessoais",
+    "gender": "Gênero",
+    "type": "Tipo"
+  },
+  "gender": {
+    "female": "Feminino",
+    "male": "Masculino",
+    "genderless": "Sem Gênero",
+    "unknown": "Desconhecido"
+  },
+  "status": {
+    "unknown": "Desconhecido",
+    "alive": "Vivo",
+    "dead": "Morto"
+  },
+  "species": {
+    "human": "Humano",
+    "alien": "Alienígena",
+    "humanoid": "Humanoide",
+    "poopybutthole": "Poopybutthole",
+    "mythological": "Mitológico",
+    "animal": "Animal",
+    "disease": "Doença",
+    "robot": "Robô",
+    "cronenberg": "Cronenberg",
+    "planet": "Planeta"
+  },
+  "search": {
+    "placeholder": "Buscar..."
+  } 
+}

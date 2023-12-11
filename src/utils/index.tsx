@@ -1,15 +1,16 @@
-import { CharacterStatus } from "../services/home";
+import { Status } from "../interfaces/character";
+
 import colors from "./colors";
 
-export const getStatusColor = (status: CharacterStatus): string => {
+export const getStatusColor = (status: Status): string => {
     switch (status) {
-        case CharacterStatus.Alive:
+        case Status.alive:
             return colors.green;
-        case CharacterStatus.Dead:
+        case Status.dead:
             return colors.red;
-        case CharacterStatus.Unknown:
+        case Status.unknown:
             return colors.gray;
-            
+
         default:
             return colors.black;
     }

@@ -1,7 +1,7 @@
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, Container, Input, Text } from '../../components/styles';
 
-import RickScene from '../../components/RickScene';
+import RickScene from './components/RickScene';
 import { ButtonContainer, InputContainer, Scene } from './styles';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -9,10 +9,13 @@ import { useUserContext } from '../../store/userContext';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../routes/types';
+import { useTranslation } from 'react-i18next';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
 export default function LoginScreen() {
+  const { t } = useTranslation();
+
   const navigation = useNavigation<NavigationProp>();
   const [username, setUsername] = useState<string>("")
   const { saveUsername } = useUserContext();
@@ -49,11 +52,11 @@ export default function LoginScreen() {
           <RickScene />
         </Scene>
         <InputContainer>
-          <Input placeholder="Username" value={username} onChangeText={setUsername} />
+          <Input placeholder={t('login.username')} value={username} onChangeText={setUsername} />
         </InputContainer>
         <ButtonContainer>
           <Button disabled={!username.length} onPress={handleLogin}>
-            <Text>Login</Text>
+            <Text>{t('login.login')}</Text>
           </Button>
         </ButtonContainer>
       </Container>
