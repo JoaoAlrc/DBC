@@ -41,7 +41,7 @@ const DrawerContent: React.FC<DrawerContentComponentProps> = () => {
           {t('drawer.hopeYouHadFun')}{", "}{username}
         </Text>
         <Button onPress={logout} style={styles.content}>
-          <Text color={colors.black}>
+          <Text color={colors.light}>
             {t('drawer.logout')}
           </Text>
         </Button>

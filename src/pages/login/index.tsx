@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useUserContext } from '../../store/userContext'; 
 import { Button, Container, Input, Text } from '../../components/styles';
-import RickScene from './components/RickScene';
+import RickScene from '../../components/RickScene';
 import { ButtonContainer, InputContainer, Scene } from './styles';
 
 export default function LoginScreen() {

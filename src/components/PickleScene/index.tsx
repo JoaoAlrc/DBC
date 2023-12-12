@@ -2,7 +2,7 @@
 
 import { Suspense, memo } from 'react';
 import { Canvas } from '@react-three/fiber';
-import rick from '../../assets/rick2.glb';
+import rick from '../../../assets/rick2.glb';
 import { Gltf } from '@react-three/drei/native';
 import useControls from 'r3f-native-orbitcontrols';
 import { Container } from '../styles';

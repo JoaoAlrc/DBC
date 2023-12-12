@@ -1,12 +1,12 @@
-import { Container } from '../../../../components/styles';
+import { Container } from '../styles';
 
 import { Suspense, memo } from 'react';
 import { Canvas } from '@react-three/fiber';
-import rick from '../../../../assets/rick.glb';
+import rick from '../../../assets/rick.glb';
 import { Gltf, Sky, Sparkles } from '@react-three/drei/native';
 import useControls from 'r3f-native-orbitcontrols';
-import Loading from '../../../../components/Loading';
-import colors from '../../../../utils/colors';
+import Loading from '../Loading';
+import colors from '../../utils/colors';
 
 function RickScene() {
   const [OrbitControls, events] = useControls()
