@@ -21,8 +21,13 @@ export const UserProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setUsername(name);
     };
 
+    const logout = async () => {
+        await AsyncStorage.clear();
+        setUsername(null);
+    };
+
     return (
-        <UserContext.Provider value={{ username, saveUsername }}>
+        <UserContext.Provider value={{ username, saveUsername, logout }}>
             {children}
         </UserContext.Provider>
     );

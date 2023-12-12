@@ -17,7 +17,6 @@ function StackNavigator() {
       headerTintColor: colors.light,
       headerBackTitleVisible: false,
     }}>
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerTitle: t('home.charactersList') }} />
       <Stack.Screen name="Details" component={DetailsScreen} options={{ headerTitle: t('details.character') }} />
     </Stack.Navigator>

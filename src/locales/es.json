@@ -40,6 +40,10 @@
     "cronenberg": "Cronenberg",
     "planet": "Planeta"
   },
+  "drawer": { 
+    "logout": "Cerrar sesión",
+    "hopeYouHadFun": "¡Espero que te hayas divertido"
+  },  
   "search": {
     "placeholder": "Buscar..."
   }

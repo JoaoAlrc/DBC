@@ -1,42 +1,23 @@
+import { useState } from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
-import { Button, Container, Input, Text } from '../../components/styles';
-
-import RickScene from './components/RickScene';
-import { ButtonContainer, InputContainer, Scene } from './styles';
-import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useUserContext } from '../../store/userContext';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../routes/types';
 import { useTranslation } from 'react-i18next';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
+import { useUserContext } from '../../store/userContext'; 
+import { Button, Container, Input, Text } from '../../components/styles';
+import RickScene from './components/RickScene';
+import { ButtonContainer, InputContainer, Scene } from './styles';
 
 export default function LoginScreen() {
   const { t } = useTranslation();
 
-  const navigation = useNavigation<NavigationProp>();
   const [username, setUsername] = useState<string>("")
   const { saveUsername } = useUserContext();
-
-  useEffect(() => {
-    const loadUserData = async () => {
-      const storedUsername = await AsyncStorage.getItem('username');
-
-      if (storedUsername) {
-        navigation.navigate('Home')
-      }
-    };
-
-    loadUserData();
-  }, []);
 
   const handleLogin = async () => {
     try {
       await AsyncStorage.setItem('username', username);
       saveUsername(username);
-      navigation.navigate('Home')
     } catch (e) {
       console.error(e)
     }

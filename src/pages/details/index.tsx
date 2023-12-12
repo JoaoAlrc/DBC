@@ -72,7 +72,7 @@ export default function DetailsScreen() {
               <Expandable title={t('details.personalInfo')}>
                 <Text fontWeight='bold' color={colors.black}>
                   {t('details.gender')}: <Text color={colors.black}>
-                    {t(`status.${data?.character.gender.toLowerCase()}`)}
+                    {t(`gender.${data?.character.gender.toLowerCase()}`)}
                   </Text>
                 </Text>
                 <Text fontWeight='bold' color={colors.black}>

@@ -40,7 +40,7 @@ function RickScene() {
             <directionalLight position={[0, -1, 0]} color={colors.light} />
             <directionalLight position={[0, 0, 1]} color={colors.green} />
             <directionalLight position={[0, 0, -1]} color={colors.green} />
-            <Gltf src={rick} position={[0, -2, 1]} scale={1.9} />
+            <Gltf src={rick} position={[0, -2, 1]} scale={1.9} rotation={[0.3,0,0]} />
           </group>
         </Suspense>
       </Canvas>
