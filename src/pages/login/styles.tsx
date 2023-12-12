@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Scene = styled.View` 
-  flex: 1
+  flex: 1;
 `;
 
 export const InputContainer = styled.View`
